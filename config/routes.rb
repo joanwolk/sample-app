@@ -1,5 +1,8 @@
 SampleApp::Application.routes.draw do
+  get "sessions/new"
+
   resources :users
+  resources :sessions, :only => [:new, :create, :destroy]
 
 
   # The following four 'get' actions could be replaced
@@ -25,10 +28,12 @@ SampleApp::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
-  match '/contact', :to => 'pages#contact'
-  match '/about', :to => 'pages#about'
-  match '/help', :to => 'pages#help'
-  match '/signup', :to => 'users#new'
+  match '/contact',   :to => 'pages#contact'
+  match '/about',     :to => 'pages#about'
+  match '/help',      :to => 'pages#help'
+  match '/signup',    :to => 'users#new'
+  match '/signin',    :to => 'sessions#new'
+  match '/signout',   :to => 'sessions#destroy'
 
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
