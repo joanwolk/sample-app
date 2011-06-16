@@ -29,6 +29,7 @@ group :test do
   gem 'autotest-fsevent'
 
   gem 'factory_girl_rails', '1.0'
+  gem 'faker', '0.3.1'
 
 end
 
